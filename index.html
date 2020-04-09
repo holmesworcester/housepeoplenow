@@ -35,7 +35,7 @@
             <select v-model="selectedTwitterHandle" class="dropdown">
                 <option disabled selected value="your institution">Choose an institution</option>
                 <option v-for="institution in institutions" :value="institution.twitterHandle">{{ institution.name }}</option>
-                <option value="your organization">Other</option>
+<!--                <option value="your organization">Other</option> -->
             </select>
             <a class="btn btn-primary btn-lg action-button" :href="tweetLink" role="button">Tweet them</a>
         </div>
