@@ -31,7 +31,14 @@
     <br>
     <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
     <div class="text-center">
-    <a class="btn btn-primary btn-lg" href="#what-you-can-do-" role="button">Demand Action</a>
+        <div id="tweetTool">
+            <select v-model="selectedTwitterHandle" class="dropdown">
+                <option disabled selected value="your institution">Choose an institution</option>
+                <option v-for="institution in institutions" :value="institution.twitterHandle">{{ institution.name }}</option>
+                <option value="your organization">Other</option>
+            </select>
+            <a class="btn btn-primary btn-lg action-button" :href="tweetLink" role="button">Tweet them</a>
+        </div>
     <br>
 </div>
 </div>
@@ -91,12 +98,440 @@ Some schools and hotels have already stepped up to do this. In Italy, people are
 </div>
 
     </main>
-
-    <!--  -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script> 
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        // todo: 
+        // make dropdown work
+        // add instructions if choice is other
+        var tweetTool = new Vue ({
+            el: '#tweetTool',
+            data: {
+                selectedTwitterHandle: 'your institution',
+                institutions: [
+  {
+    "name": "American University",
+    "twitterHandle": "AmericanU"
+  },
+  {
+    "name": "Arizona State University",
+    "twitterHandle": "ASU"
+  },
+  {
+    "name": "Barnard College",
+    "twitterHandle": "BarnardCollege"
+  },
+  {
+    "name": "Boston College",
+    "twitterHandle": "BostonCollege"
+  },
+  {
+    "name": "Brandeis University",
+    "twitterHandle": "BrandeisU"
+  },
+  {
+    "name": "Brenau University",
+    "twitterHandle": "BrenauU"
+  },
+  {
+    "name": "Brown University",
+    "twitterHandle": "BrownUniversity"
+  },
+  {
+    "name": "Boston University",
+    "twitterHandle": "BU_Tweets"
+  },
+  {
+    "name": "California Institute of Technology",
+    "twitterHandle": "Caltech"
+  },
+  {
+    "name": "Carnegie Mellon University",
+    "twitterHandle": "CarnegieMellon"
+  },
+  {
+    "name": "Clark Atlanta University",
+    "twitterHandle": "CAU"
+  },
+  {
+    "name": "California Institute of Integral Studies",
+    "twitterHandle": "CIIS_SF"
+  },
+  {
+    "name": "Colorado State University",
+    "twitterHandle": "ColoradoStateU"
+  },
+  {
+    "name": "Columbia",
+    "twitterHandle": "Columbia"
+  },
+  {
+    "name": "Columbus State University",
+    "twitterHandle": "ColumbusState"
+  },
+  {
+    "name": "Cornell University",
+    "twitterHandle": "Cornell"
+  },
+  {
+    "name": "Case Western Reserve",
+    "twitterHandle": "cwru"
+  },
+  {
+    "name": "Dartmouth College",
+    "twitterHandle": "dartmouth"
+  },
+  {
+    "name": "DePaul University",
+    "twitterHandle": "DePaulU"
+  },
+  {
+    "name": "Duke University",
+    "twitterHandle": "DukeU"
+  },
+  {
+    "name": "Emory University",
+    "twitterHandle": "EmoryUniversity"
+  },
+  {
+    "name": "Evergreen State College",
+    "twitterHandle": "EvergreenStCol"
+  },
+  {
+    "name": "Florida International University",
+    "twitterHandle": "FIU"
+  },
+  {
+    "name": "George Mason University",
+    "twitterHandle": "GeorgeMasonU"
+  },
+  {
+    "name": "Georgetown University",
+    "twitterHandle": "Georgetown"
+  },
+  {
+    "name": "Georgia State University",
+    "twitterHandle": "GeorgiaStateU"
+  },
+  {
+    "name": "Georgia Tech",
+    "twitterHandle": "GeorgiaTech"
+  },
+  {
+    "name": "George Washington University",
+    "twitterHandle": "GWtweets"
+  },
+  {
+    "name": "Hampshire",
+    "twitterHandle": "hampshirecolg"
+  },
+  {
+    "name": "Harvard",
+    "twitterHandle": "Harvard"
+  },
+  {
+    "name": "Howard University",
+    "twitterHandle": "HowardU"
+  },
+  {
+    "name": "Iowa State University",
+    "twitterHandle": "IowaStateU"
+  },
+  {
+    "name": "James Madison University",
+    "twitterHandle": "JMU"
+  },
+  {
+    "name": "Johns Hopkins University",
+    "twitterHandle": "JohnsHopkins"
+  },
+  {
+    "name": "Kalamazoo College",
+    "twitterHandle": "kcollege"
+  },
+  {
+    "name": "Kent State University",
+    "twitterHandle": "KentState"
+  },
+  {
+    "name": "Kentucky State University",
+    "twitterHandle": "KyStateU"
+  },
+  {
+    "name": "Purdue",
+    "twitterHandle": "LifeAtPurdue"
+  },
+  {
+    "name": "Miami Dade College",
+    "twitterHandle": "MDCollege"
+  },
+  {
+    "name": "Michigan State University",
+    "twitterHandle": "michiganstateu"
+  },
+  {
+    "name": "MIT",
+    "twitterHandle": "MIT"
+  },
+  {
+    "name": "University of Missouri",
+    "twitterHandle": "Mizzou"
+  },
+  {
+    "name": "Morehouse College",
+    "twitterHandle": "Morehouse"
+  },
+  {
+    "name": "Naropa University",
+    "twitterHandle": "NaropaU"
+  },
+  {
+    "name": "New College",
+    "twitterHandle": "NewCollegeofFL"
+  },
+  {
+    "name": "Northeastern University",
+    "twitterHandle": "Northeastern"
+  },
+  {
+    "name": "Northwestern University",
+    "twitterHandle": "NorthwesternU"
+  },
+  {
+    "name": "University of Notre Dame",
+    "twitterHandle": "NotreDame"
+  },
+  {
+    "name": "Northeastern State University",
+    "twitterHandle": "NSURiverHawks"
+  },
+  {
+    "name": "New York University",
+    "twitterHandle": "nyuniversity"
+  },
+  {
+    "name": "Oberlin College",
+    "twitterHandle": "oberlincollege"
+  },
+  {
+    "name": "Ohio State University",
+    "twitterHandle": "OhioState"
+  },
+  {
+    "name": "Oregon State University",
+    "twitterHandle": "OregonState"
+  },
+  {
+    "name": "University of Pennsylvania",
+    "twitterHandle": "Penn"
+  },
+  {
+    "name": "University of Pittsburgh - Titusville",
+    "twitterHandle": "PittTitusville"
+  },
+  {
+    "name": "Portland State University",
+    "twitterHandle": "Portland_State"
+  },
+  {
+    "name": "Princeton",
+    "twitterHandle": "Princeton"
+  },
+  {
+    "name": "Reed College",
+    "twitterHandle": "Reed_College_"
+  },
+  {
+    "name": "Rice University",
+    "twitterHandle": "RiceUniversity"
+  },
+  {
+    "name": "California State University Sacramento",
+    "twitterHandle": "sacstate"
+  },
+  {
+    "name": "Sarah Lawrence College",
+    "twitterHandle": "SarahLawrence"
+  },
+  {
+    "name": "San Francisco State University",
+    "twitterHandle": "SFSU"
+  },
+  {
+    "name": "Southern Methodist University",
+    "twitterHandle": "SMU"
+  },
+  {
+    "name": "Sofia University",
+    "twitterHandle": "sofiauca"
+  },
+  {
+    "name": "Stanford",
+    "twitterHandle": "Stanford"
+  },
+  {
+    "name": "Tufts",
+    "twitterHandle": "TuftsUniversity"
+  },
+  {
+    "name": "Tulane University",
+    "twitterHandle": "Tulane"
+  },
+  {
+    "name": "UC Berkeley",
+    "twitterHandle": "UCBerkeley"
+  },
+  {
+    "name": "UC Davis",
+    "twitterHandle": "ucdavis"
+  },
+  {
+    "name": "University of Chicago",
+    "twitterHandle": "UChicago"
+  },
+  {
+    "name": "UC Irvine",
+    "twitterHandle": "UCIrvine"
+  },
+  {
+    "name": "UCLA",
+    "twitterHandle": "ucla"
+  },
+  {
+    "name": "UC Merced",
+    "twitterHandle": "ucmerced"
+  },
+  {
+    "name": "UC San Diego",
+    "twitterHandle": "UCSanDiego"
+  },
+  {
+    "name": "UC Santa Barbara",
+    "twitterHandle": "ucsantabarbara"
+  },
+  {
+    "name": "UC Santa Cruz",
+    "twitterHandle": "ucsc"
+  },
+  {
+    "name": "University of Florida",
+    "twitterHandle": "UF"
+  },
+  {
+    "name": "University of Michigan",
+    "twitterHandle": "UMich"
+  },
+  {
+    "name": "University of Minnesota",
+    "twitterHandle": "UMNews"
+  },
+  {
+    "name": "University of North Carolina",
+    "twitterHandle": "UNC"
+  },
+  {
+    "name": "University of Nevada: Reno",
+    "twitterHandle": "unevadareno"
+  },
+  {
+    "name": "University of Georgia",
+    "twitterHandle": "universityofga"
+  },
+  {
+    "name": "University of Miami",
+    "twitterHandle": "univmiami"
+  },
+  {
+    "name": "University of Alabama",
+    "twitterHandle": "uofalabama"
+  },
+  {
+    "name": "University of Denver",
+    "twitterHandle": "UofDenver"
+  },
+  {
+    "name": "University of Illinois",
+    "twitterHandle": "UofILSystem"
+  },
+  {
+    "name": "University of Maryland",
+    "twitterHandle": "UofMaryland"
+  },
+  {
+    "name": "University of Rochester",
+    "twitterHandle": "UofR"
+  },
+  {
+    "name": "University of Oregon",
+    "twitterHandle": "uoregon"
+  },
+  {
+    "name": "University of Southern California",
+    "twitterHandle": "USC"
+  },
+  {
+    "name": "University of San Francisco",
+    "twitterHandle": "usfca"
+  },
+  {
+    "name": "University of Texas at Austin",
+    "twitterHandle": "UTAustin"
+  },
+  {
+    "name": "University of Utah",
+    "twitterHandle": "UUtah"
+  },
+  {
+    "name": "University of Virginia",
+    "twitterHandle": "UVA"
+  },
+  {
+    "name": "University of Washington",
+    "twitterHandle": "UW"
+  },
+  {
+    "name": "University of Wisconsin–Madison",
+    "twitterHandle": "UWMadison"
+  },
+  {
+    "name": "Vanderbilt",
+    "twitterHandle": "VanderbiltU"
+  },
+  {
+    "name": "Vassar College",
+    "twitterHandle": "Vassar"
+  },
+  {
+    "name": "Wake Forest University",
+    "twitterHandle": "WakeForest"
+  },
+  {
+    "name": "West Virginia University",
+    "twitterHandle": "westvirginiau"
+  },
+  {
+    "name": "College of William and Mary",
+    "twitterHandle": "williamandmary"
+  },
+  {
+    "name": "Washington University",
+    "twitterHandle": "WUSTL"
+  },
+  {
+    "name": "Western Washington University",
+    "twitterHandle": "WWU"
+  },
+  {
+    "name": "Yale University",
+    "twitterHandle": "Yale"
+  }
+]
+            },
+            computed: {
+                tweetLink: function () {
+                    return "https://twitter.com/intent/tweet?url=HousePeopleNow.com&amp;text=Is%20%40" + this.selectedTwitterHandle + "%20doing%20its%20part%20to%20help%20our%20community%20%23FlattenTheCurve%20by%20making%20rooms%20available%20for%20healthcare%20workers%20%26%20vulnerable%20populations%3F%20%23HousePeopleNow"
+                }
+            }
+        })  
+    </script>    
 </body>
 </html>

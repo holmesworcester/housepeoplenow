@@ -19,9 +19,20 @@ main {
 .jumbotron.btn {
     align-self: center;
     font-weight: bold;
-    display: none;
+}
+
+.action-button {
+    margin-top: 16px;
+    width: 
 }
 
 .twitter-share-button {
     margin-top: 10px;
+}
+
+.dropdown {
+    display: block;
+    margin: 0 auto 0 auto;
+    font-size: 16px;
+    height: 36px;
 }
