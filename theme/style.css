@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+}
+
+main {
+    margin-top: 50px;
+}
+
+#sethousing {
+    font-weight: bolder;
+    margin-bottom: 2rem;
+}
+
+.jumbotron {
+    background: lightgrey;
+    color: black;
+}
+
+.jumbotron.btn {
+    align-self: center;
+    font-weight: bold;
+    display: none;
+}
+
+.twitter-share-button {
+    margin-top: 10px;
+}
